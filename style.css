@@ -37,37 +37,83 @@ body {
     overflow-x: hidden;
 }
 
-/* Custom Cursor */
+/* Advanced Custom Cursor */
 .cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 15px;
-    height: 15px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s, height 0.3s, background 0.3s, border 0.3s;
+}
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
     background: #fff;
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
-    mix-blend-mode: difference;
     transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
+}
+.cursor-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 .cursor.hovered {
     width: 60px;
     height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.cursor.view-mode {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-color: #fff;
+}
+.cursor.view-mode .cursor-text {
+    opacity: 1;
 }
 
-/* Grain Effect */
+/* Animated Film Grain Effect */
 .grain {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: -100%;
+    left: -100%;
+    width: 300vw;
+    height: 300vh;
     pointer-events: none;
     z-index: 9000;
-    opacity: 0.04;
+    opacity: 0.05;
     background: url("https://grainy-gradients.vercel.app/noise.svg");
+    animation: grainAnimation 8s steps(10) infinite;
+}
+@keyframes grainAnimation {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
 }
 
 /* Cinematic Preloader */

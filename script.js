@@ -17,15 +17,41 @@ gsap.ticker.add((time)=>{
 });
 gsap.ticker.lagSmoothing(0, 0);
 
-// --- Custom Cursor --- //
+// --- Advanced Custom Cursor --- //
 const cursor = document.querySelector('.cursor');
+const cursorDot = document.querySelector('.cursor-dot');
+
 document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
+    // Outer ring trails slightly for a smooth, premium feel
+    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
+    // Inner dot moves instantly
+    gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
 });
-const hoverElements = document.querySelectorAll('.hover-link, button, a');
+
+// Regular Hover elements (links, buttons)
+const hoverElements = document.querySelectorAll('.hover-link, button, a:not(.work-item)');
 hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovered');
+        cursorDot.style.opacity = '0';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovered');
+        cursorDot.style.opacity = '1';
+    });
+});
+
+// View Mode Hover elements (Project images)
+const viewElements = document.querySelectorAll('.work-item');
+viewElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('view-mode');
+        cursorDot.style.opacity = '0';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('view-mode');
+        cursorDot.style.opacity = '1';
+    });
 });
 
 // --- Preloader Cinematic Montage --- //
