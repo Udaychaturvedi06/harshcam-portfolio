@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshcam | Visual Storyteller</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Premium Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="counter">0%</div>
+            <div class="loading-text">Loading Experience</div>
+        </div>
+    </div>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <nav>
+        <div class="logo">HARSHCAM</div>
+        <div class="nav-links">
+            <a href="#work" data-text="Work">Work</a>
+            <a href="#services" data-text="Services">Services</a>
+            <a href="#contact" data-text="Contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-title">
+                    <div class="line"><span class="word">VISUAL</span></div>
+                    <div class="line"><span class="word">STORY</span><span class="word italic-accent">TELLER</span></div>
+                </div>
+                <div class="hero-images">
+                    <!-- Parallax Hero Images -->
+                    <div class="hero-img-wrapper left">
+                        <img src="https://images.unsplash.com/photo-1540039155732-684735035726?q=80&w=1000&auto=format&fit=crop" alt="Festival Photography">
+                    </div>
+                    <div class="hero-img-wrapper right">
+                        <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=1000&auto=format&fit=crop" alt="Music Festival">
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </section>
+
+            <!-- About Section with 3D Scroll Effect -->
+            <section id="about" class="about">
+                <div class="about-content">
+                    <h2 class="section-title">BEHIND THE LENS</h2>
+                    <div class="about-grid">
+                        <div class="about-text-reveal">
+                            <p>I am Harshcam, capturing the raw, electric energy of global photography and music festivals. I don't just record moments; I engineer cinematic memories with premium visual fidelity.</p>
+                        </div>
+                        <div class="about-image-wrapper">
+                            <img src="Screenshot_20260223_194215689.jpg" alt="Profile" class="parallax-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Horizontal Scroll Gallery -->
+            <section id="work" class="work-horizontal">
+                <h2 class="section-title pinned-title">SELECTED WORKS</h2>
+                <div class="gallery-container">
+                    <div class="gallery-track">
+                        <div class="gallery-item">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="Live Concert">
+                            </div>
+                            <h3>Rhythm & Soul</h3>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?q=80&w=1000&auto=format&fit=crop" alt="Night Festival">
+                            </div>
+                            <h3>Neon Nights</h3>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000&auto=format&fit=crop" alt="Crowd">
+                            </div>
+                            <h3>The Collective</h3>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Stage Light">
+                            </div>
+                            <h3>Spotlight</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3D Stacked Services -->
+            <section id="services" class="services">
+                <h2 class="section-title">EXPERTISE</h2>
+                <div class="stack-cards">
+                    <div class="card" style="--i: 1">
+                        <div class="card-content">
+                            <h3>Cinematography</h3>
+                            <p>High-octane festival coverage using RED and ARRI ecosystems. Capturing the sheer scale and micro-emotions simultaneously.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Cinematography">
+                    </div>
+                    <div class="card" style="--i: 2">
+                        <div class="card-content">
+                            <h3>Color Grading</h3>
+                            <p>Premium DaVinci Resolve workflows to establish moody, vibrant, and evocative aesthetics.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop" alt="Color Grading">
+                    </div>
+                    <div class="card" style="--i: 3">
+                        <div class="card-content">
+                            <h3>Post-Production</h3>
+                            <p>Rhythmic, beat-synced editing paired with industry-leading sound design for maximum impact.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop" alt="Editing">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="contact">
+                <div class="contact-inner">
+                    <h2 class="huge-text">LET'S BUILD<br>SOMETHING<br>EPIC.</h2>
+                    <form action="#" method="POST" class="premium-form">
+                        <div class="input-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" rows="1" required></textarea>
+                            <label for="message">Tell me about your vision</label>
+                        </div>
+                        <button class="magnetic-btn">
+                            <span class="btn-text">SEND INQUIRY</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-top">
+                    <h2>HARSHCAM.</h2>
+                    <div class="socials">
+                        <a href="#" class="magnetic">Instagram</a>
+                        <a href="#" class="magnetic">Vimeo</a>
+                        <a href="#" class="magnetic">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2024 Harshcam. Elevating Visuals.</p>
+                    <p>Designed with ❤️</p>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
