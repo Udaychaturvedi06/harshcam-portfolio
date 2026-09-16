@@ -513,3 +513,41 @@ section {
 .clip-reveal {
     clip-path: inset(100% 0% 0% 0%);
 }
+
+/* Premium Mouse-Tracking Glowing Borders */
+.glowing-wrapper {
+    position: relative;
+    border-radius: 4px; /* subtle rounding */
+    padding: 0.5rem 1rem; /* Space for the border */
+    text-decoration: none;
+}
+.glowing-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* Border thickness */
+    background: radial-gradient(circle 80px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(212, 175, 55, 0.8), transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.glowing-wrapper:hover::before {
+    opacity: 1;
+}
+
+/* Specific resets for links using glowing wrapper */
+nav .glowing-wrapper {
+    padding: 0.25rem 0.75rem;
+}
+.footer .glowing-wrapper {
+    padding: 0.25rem 0.75rem;
+}
+.contact-form button.glowing-wrapper {
+    background: transparent;
+    color: #fff;
+    border: none;
+}

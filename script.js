@@ -27,6 +27,15 @@ document.addEventListener('mousemove', (e) => {
     gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
     // Ambient spotlight follows cursor heavily eased
     gsap.to(cursorGlow, { x: e.clientX, y: e.clientY, duration: 1.2, ease: "power3.out" });
+    
+    // Glowing border tracking
+    document.querySelectorAll('.glowing-wrapper').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        el.style.setProperty('--mouse-x', `${x}px`);
+        el.style.setProperty('--mouse-y', `${y}px`);
+    });
 });
 
 // --- Cyberpunk Text Scramble Hover Effect --- //
