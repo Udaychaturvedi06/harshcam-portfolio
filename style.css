@@ -104,6 +104,20 @@ body {
     opacity: 1;
 }
 
+/* Festival Bass Beat Strip */
+.beat-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(212, 175, 55, 0.5);
+    z-index: 10001;
+    pointer-events: none;
+    transform-origin: center;
+}
+
 /* Animated Film Grain Effect */
 .grain {
     position: fixed;

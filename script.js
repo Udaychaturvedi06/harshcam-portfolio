@@ -286,3 +286,12 @@ document.querySelectorAll('.work-img').forEach(imgWrap => {
         });
     });
 });
+
+// --- Festival Bass / Beat Strip --- //
+const beatTl = gsap.timeline({ repeat: -1 });
+// Mimic an EDM heartbeat/drop (contracts, explodes, subtle bounce, explode)
+beatTl.to('.beat-strip', { scaleX: 0.05, opacity: 0.3, duration: 0.8, ease: "power2.inOut" })
+      .to('.beat-strip', { scaleX: 1, opacity: 1, duration: 0.15, ease: "expo.out" })
+      .to('.beat-strip', { scaleX: 0.7, opacity: 0.8, duration: 0.2, ease: "power1.inOut" })
+      .to('.beat-strip', { scaleX: 1, opacity: 1, duration: 0.15, ease: "expo.out" })
+      .to('.beat-strip', { scaleX: 0.2, opacity: 0.5, duration: 0.6, ease: "power2.inOut" });
