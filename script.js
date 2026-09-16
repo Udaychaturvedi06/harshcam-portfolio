@@ -17,16 +17,36 @@ gsap.ticker.add((time)=>{
 });
 gsap.ticker.lagSmoothing(0, 0);
 
-// --- Advanced Custom Cursor --- //
+// --- Advanced Custom Cursor & Ambient Glow --- //
 const cursor = document.querySelector('.cursor');
 const cursorDot = document.querySelector('.cursor-dot');
+const cursorGlow = document.querySelector('.cursor-glow');
 
 document.addEventListener('mousemove', (e) => {
-    // Outer ring trails slightly for a smooth, premium feel
     gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
-    // Inner dot moves instantly
     gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
+    // Ambient spotlight follows cursor heavily eased
+    gsap.to(cursorGlow, { x: e.clientX, y: e.clientY, duration: 1.2, ease: "power3.out" });
 });
+
+// --- Cyberpunk Text Scramble Hover Effect --- //
+const scrambleChars = '!<>-_\\/[]{}—=+*^?#________';
+function scrambleText(element) {
+    const originalText = element.dataset.text || element.innerText;
+    if(!element.dataset.text) element.dataset.text = originalText;
+    let iterations = 0;
+    
+    clearInterval(element.scrambleInterval);
+    element.scrambleInterval = setInterval(() => {
+        element.innerText = originalText.split('').map((letter, index) => {
+            if(index < iterations) return originalText[index];
+            return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }).join('');
+        
+        if(iterations >= originalText.length) clearInterval(element.scrambleInterval);
+        iterations += 1 / 3;
+    }, 30);
+}
 
 // Regular Hover elements (links, buttons)
 const hoverElements = document.querySelectorAll('.hover-link, button, a:not(.work-item)');
@@ -34,6 +54,7 @@ hoverElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.classList.add('hovered');
         cursorDot.style.opacity = '0';
+        if(el.innerText && el.innerText.length < 20) scrambleText(el);
     });
     el.addEventListener('mouseleave', () => {
         cursor.classList.remove('hovered');
@@ -193,6 +214,28 @@ clipElements.forEach(el => {
             start: "top 85%",
         }
     });
+});
+
+// --- Dynamic Background Color Morphing --- //
+gsap.to('body', {
+    backgroundColor: '#0a0906', // Very dark gold/charcoal tint
+    color: '#e0e0e0',
+    scrollTrigger: {
+        trigger: '#about',
+        start: "top 60%",
+        end: "bottom 40%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+gsap.to('body', {
+    backgroundColor: '#070707', // Back to pitch black
+    color: '#f5f5f5',
+    scrollTrigger: {
+        trigger: '#work',
+        start: "top 60%",
+        end: "bottom 40%",
+        toggleActions: "play reverse play reverse"
+    }
 });
 
 // --- Ultra Premium Scroll Velocity Skew --- //
