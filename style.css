@@ -252,9 +252,11 @@ h1, h2, h3, .footer-logo, .nav-logo {
 }
 .hero-title .line {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
-.hero-title .line span {
-    display: block;
+.hero-title .line > span, .hero-title .line > i {
+    display: inline-flex;
     font-size: clamp(2.5rem, 8vw, 8rem);
     line-height: 1.1;
     letter-spacing: 0px;

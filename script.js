@@ -54,6 +54,12 @@ viewElements.forEach(el => {
     });
 });
 
+// --- Premium Text Splitting --- //
+document.querySelectorAll('.char-split').forEach(el => {
+    const text = el.innerText;
+    el.innerHTML = text.split('').map(char => `<span style="display:inline-block; transform: translateY(110%);">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+});
+
 // --- Preloader Cinematic Montage --- //
 const tl = gsap.timeline();
 const pImages = document.querySelectorAll('.preloader-images img:not(.final-img)');
@@ -96,10 +102,10 @@ tl.to('.preloader-images', {
     onComplete: () => { document.querySelector('.preloader').style.display = 'none'; }
 }, "+=0.1");
 
-// Reveal Hero text underneath immediately after expansion
-tl.fromTo('.hero-title .line span', 
+// Reveal Hero text underneath immediately after expansion (Character by character)
+tl.fromTo('.char-split span', 
     { y: "110%" }, 
-    { y: "0%", stagger: 0.1, duration: 1, ease: "power4.out" }, 
+    { y: "0%", stagger: 0.03, duration: 1.2, ease: "power4.out" }, 
     finalStart + 1.2
 )
 .fromTo('.fade-up', 
@@ -186,5 +192,45 @@ clipElements.forEach(el => {
             trigger: el,
             start: "top 85%",
         }
+    });
+});
+
+// --- Ultra Premium Scroll Velocity Skew --- //
+lenis.on('scroll', (e) => {
+    const velocity = e.velocity;
+    gsap.to('.work-item, .about-img-container', {
+        skewY: velocity * 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+        overwrite: "auto"
+    });
+});
+
+// --- 3D Magnetic Image Tilt --- //
+document.querySelectorAll('.work-img').forEach(imgWrap => {
+    imgWrap.style.perspective = "1000px";
+    const img = imgWrap.querySelector('img');
+    
+    imgWrap.addEventListener('mousemove', (e) => {
+        const rect = imgWrap.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        
+        gsap.to(img, {
+            x: -x * 0.05,
+            y: -y * 0.05,
+            rotationX: y * 0.02,
+            rotationY: -x * 0.02,
+            scale: 1.1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    });
+    
+    imgWrap.addEventListener('mouseleave', () => {
+        gsap.to(img, {
+            x: 0, y: 0, rotationX: 0, rotationY: 0, scale: 1,
+            duration: 1.2, ease: "elastic.out(1, 0.3)"
+        });
     });
 });
