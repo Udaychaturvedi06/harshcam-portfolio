@@ -458,3 +458,42 @@ section {
     .footer-top { flex-direction: column; align-items: flex-start; gap: 2rem; }
     .service-row { gap: 1rem; }
 }
+
+/* Infinite Marquee */
+.marquee {
+    width: 100vw;
+    overflow: hidden;
+    padding: 3rem 0;
+    background: var(--accent);
+    color: #000;
+    transform: rotate(-2deg) scale(1.05);
+    margin: 5vh 0;
+    z-index: 10;
+    position: relative;
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+}
+.marquee-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-right: 2rem;
+}
+.marquee-text span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin: 0 1rem;
+}
+
+/* Magnetic Element Wrapper */
+.magnetic {
+    display: inline-block;
+}
+
+/* Clip Reveal */
+.clip-reveal {
+    clip-path: inset(100% 0% 0% 0%);
+}

@@ -150,3 +150,41 @@ revealElements.forEach(el => {
         }
     });
 });
+
+// --- Infinite Marquee --- //
+gsap.to('.marquee-track', {
+    xPercent: -33.33, // scrolls one third of the track since we duplicated it 3 times
+    ease: "none",
+    duration: 15,
+    repeat: -1
+});
+
+// --- Magnetic Buttons --- //
+const magnetics = document.querySelectorAll('.magnetic');
+magnetics.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const h = rect.width / 2;
+        const w = rect.height / 2;
+        const x = e.clientX - rect.left - h;
+        const y = e.clientY - rect.top - w;
+        gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.4, ease: "power2.out" });
+    });
+    btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+    });
+});
+
+// --- Image Clip Reveal --- //
+const clipElements = document.querySelectorAll('.clip-reveal');
+clipElements.forEach(el => {
+    gsap.to(el, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        duration: 1.5,
+        ease: "power4.inOut",
+        scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+        }
+    });
+});
