@@ -28,49 +28,59 @@ hoverElements.forEach(el => {
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
 });
 
-// --- Preloader & Hero Animation --- //
+// --- Preloader Cinematic Montage --- //
 const tl = gsap.timeline();
+const pImages = document.querySelectorAll('.preloader-images img:not(.final-img)');
+const flashDuration = 0.15;
 
-// Simulate loading safely
-let progress = 0;
-const progressBar = document.querySelector('.progress-bar');
-const loadingInterval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 5;
-    if(progress > 100) progress = 100;
-    progressBar.style.width = `${progress}%`;
+// Fade in the title early
+tl.to('.preloader-title', { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
 
-    if(progress === 100) {
-        clearInterval(loadingInterval);
-        initReveal();
-    }
-}, 100);
+// Flash through the images
+pImages.forEach((img, i) => {
+    tl.set(img, { opacity: 1 }, i * flashDuration)
+      .set(img, { opacity: 0 }, (i + 1) * flashDuration);
+});
 
-function initReveal() {
-    // Hide preloader
-    tl.to('.preloader', {
-        yPercent: -100,
-        duration: 1.2,
-        ease: "power4.inOut",
-        delay: 0.3
-    })
-    // Parallax hero bg start
-    .fromTo('.hero-bg img', { scale: 1.2 }, { scale: 1, duration: 2, ease: "power3.out" }, "-=1")
-    // Reveal Hero text
-    .from('.hero-title .line span', {
-        y: "110%",
-        stagger: 0.1,
-        duration: 1,
-        ease: "power4.out"
-    }, "-=1.2")
-    // Sub text
-    .from('.fade-up', {
-        y: 30,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power2.out"
-    }, "-=0.8");
-}
+// Show the final image (which matches the hero bg)
+const finalStart = pImages.length * flashDuration;
+tl.set('.final-img', { opacity: 1 }, finalStart);
+
+// Aggressively expand the image container to fill the screen
+tl.to('.preloader-images', {
+    width: "100vw",
+    height: "100vh",
+    duration: 1.5,
+    ease: "power4.inOut"
+}, finalStart + 0.3)
+.to('.preloader-title', {
+    y: -50,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.in"
+}, finalStart + 0.3)
+// Fade out the preloader background to seamlessly reveal the real site
+.to('.preloader-bg', {
+    opacity: 0,
+    duration: 0.1
+}, "-=0.1")
+.to('.preloader', {
+    opacity: 0,
+    duration: 0.5,
+    onComplete: () => { document.querySelector('.preloader').style.display = 'none'; }
+}, "+=0.1");
+
+// Reveal Hero text underneath immediately after expansion
+tl.fromTo('.hero-title .line span', 
+    { y: "110%" }, 
+    { y: "0%", stagger: 0.1, duration: 1, ease: "power4.out" }, 
+    finalStart + 1.2
+)
+.fromTo('.fade-up', 
+    { y: 30, opacity: 0 }, 
+    { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.out" }, 
+    "-=0.8"
+);
 
 // --- GSAP Scroll Animations --- //
 gsap.registerPlugin(ScrollTrigger);
