@@ -295,3 +295,37 @@ beatTl.to('.beat-strip', { scaleX: 0.05, opacity: 0.3, duration: 0.8, ease: "pow
       .to('.beat-strip', { scaleX: 0.7, opacity: 0.8, duration: 0.2, ease: "power1.inOut" })
       .to('.beat-strip', { scaleX: 1, opacity: 1, duration: 0.15, ease: "expo.out" })
       .to('.beat-strip', { scaleX: 0.2, opacity: 0.5, duration: 0.6, ease: "power2.inOut" });
+
+// --- Hero Mouse Parallax --- //
+document.addEventListener('mousemove', (e) => {
+    // Check if on mobile to prevent unnecessary calculations
+    if(window.innerWidth > 768) {
+        const x = (e.clientX / window.innerWidth - 0.5) * 30;
+        const y = (e.clientY / window.innerHeight - 0.5) * 30;
+        gsap.to('.hero-bg img', { x: -x, y: -y, duration: 1.5, ease: "power2.out", overwrite: "auto" });
+    }
+});
+
+// --- Scroll Progress Ring --- //
+const progressCircle = document.querySelector('.progress-ring-circle');
+const progressText = document.querySelector('.progress-text');
+
+if (progressCircle) {
+    const radius = progressCircle.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+    
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = circumference;
+    
+    lenis.on('scroll', (e) => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = window.scrollY / scrollHeight;
+        
+        // Update SVG circle
+        const offset = circumference - scrollPercent * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+        
+        // Update Text
+        progressText.innerText = Math.max(0, Math.min(100, Math.round(scrollPercent * 100)));
+    });
+}
