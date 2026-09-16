@@ -4,180 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harshcam | Visual Storyteller</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Premium Preloader -->
+    
+    <!-- Preloader -->
     <div class="preloader">
-        <div class="preloader-content">
-            <div class="counter">0%</div>
-            <div class="loading-text">Loading Experience</div>
+        <div class="preloader-text">HARSHCAM<span class="dot">.</span></div>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar"></div>
         </div>
     </div>
-
-    <!-- WebGL Background -->
-    <canvas id="webgl-canvas"></canvas>
 
     <!-- Custom Cursor -->
     <div class="cursor"></div>
 
-    <nav>
-        <div class="logo">HARSHCAM</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">HARSHCAM</div>
         <div class="nav-links">
-            <a href="#work" data-text="Work">Work</a>
-            <a href="#services" data-text="Services">Services</a>
-            <a href="#contact" data-text="Contact">Contact</a>
+            <a href="#work" class="hover-link">Work</a>
+            <a href="#services" class="hover-link">Expertise</a>
+            <a href="#contact" class="hover-link">Contact</a>
         </div>
     </nav>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1540039155732-684735035726?q=80&w=2000&auto=format&fit=crop" alt="Festival Energy">
+                <div class="hero-overlay"></div>
+            </div>
             
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-title">
-                    <div class="line"><span class="word">VISUAL</span></div>
-                    <div class="line"><span class="word">STORY</span><span class="word italic-accent">TELLER</span></div>
+            <div class="hero-content">
+                <div class="hero-title-wrapper">
+                    <h1 class="hero-title">
+                        <div class="line"><span>CINEMATIC</span></div>
+                        <div class="line"><span><i class="accent">Vision</i> &</span></div>
+                        <div class="line"><span>ENERGY</span></div>
+                    </h1>
                 </div>
-                <div class="hero-images">
-                    <!-- Parallax Hero Images -->
-                    <div class="hero-img-wrapper left">
-                        <img src="https://images.unsplash.com/photo-1540039155732-684735035726?q=80&w=1000&auto=format&fit=crop" alt="Festival Photography">
-                    </div>
-                    <div class="hero-img-wrapper right">
-                        <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=1000&auto=format&fit=crop" alt="Music Festival">
-                    </div>
+                <div class="hero-sub">
+                    <p class="fade-up">Global festival and music photography.</p>
+                    <p class="fade-up">Capturing the raw rhythm of the crowd.</p>
                 </div>
-                <div class="scroll-indicator">
-                    <span>Scroll to explore</span>
-                    <div class="scroll-line"></div>
-                </div>
-            </section>
+            </div>
+            
+            <div class="scroll-down fade-up">
+                <p>Scroll to explore</p>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
 
-            <!-- About Section with 3D Scroll Effect -->
-            <section id="about" class="about">
-                <div class="about-content">
-                    <h2 class="section-title">BEHIND THE LENS</h2>
-                    <div class="about-grid">
-                        <div class="about-text-reveal">
-                            <p>I am Harshcam, capturing the raw, electric energy of global photography and music festivals. I don't just record moments; I engineer cinematic memories with premium visual fidelity.</p>
-                        </div>
-                        <div class="about-image-wrapper">
-                            <img src="Screenshot_20260223_194215689.jpg" alt="Profile" class="parallax-img">
-                        </div>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-img-container">
+                        <img src="Screenshot_20260223_194215689.jpg" alt="Harshcam Portrait" class="parallax-img">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title gs-reveal">BEHIND THE LENS</h2>
+                        <p class="gs-reveal">I am Harshcam. I don't just record moments; I engineer cinematic memories with uncompromising visual fidelity. Whether it's the chaotic beauty of a music festival or an intimate portrait, I craft visuals that make you feel the bass and the energy long after the lights go out.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Horizontal Scroll Gallery -->
-            <section id="work" class="work-horizontal">
-                <h2 class="section-title pinned-title">SELECTED WORKS</h2>
-                <div class="gallery-container">
-                    <div class="gallery-track">
-                        <div class="gallery-item">
-                            <div class="img-container">
-                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="Live Concert">
-                            </div>
-                            <h3>Rhythm & Soul</h3>
+        <!-- Selected Works Section -->
+        <section id="work" class="work">
+            <div class="container">
+                <h2 class="section-title gs-reveal">SELECTED WORKS</h2>
+                <div class="work-grid">
+                    
+                    <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="work-item hover-link">
+                        <div class="work-img">
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="Concert">
                         </div>
-                        <div class="gallery-item">
-                            <div class="img-container">
-                                <img src="https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?q=80&w=1000&auto=format&fit=crop" alt="Night Festival">
-                            </div>
-                            <h3>Neon Nights</h3>
+                        <div class="work-info">
+                            <h3>RHYTHM & SOUL</h3>
+                            <span>View on Instagram</span>
                         </div>
-                        <div class="gallery-item">
-                            <div class="img-container">
-                                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000&auto=format&fit=crop" alt="Crowd">
-                            </div>
-                            <h3>The Collective</h3>
+                    </a>
+
+                    <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="work-item hover-link">
+                        <div class="work-img">
+                            <img src="https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?q=80&w=1000&auto=format&fit=crop" alt="Neon">
                         </div>
-                        <div class="gallery-item">
-                            <div class="img-container">
-                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Stage Light">
-                            </div>
-                            <h3>Spotlight</h3>
+                        <div class="work-info">
+                            <h3>NEON NIGHTS</h3>
+                            <span>View on Instagram</span>
                         </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="work-item hover-link">
+                        <div class="work-img">
+                            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000&auto=format&fit=crop" alt="Crowd">
+                        </div>
+                        <div class="work-info">
+                            <h3>THE COLLECTIVE</h3>
+                            <span>View on Instagram</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="work-item hover-link">
+                        <div class="work-img">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Spotlight">
+                        </div>
+                        <div class="work-info">
+                            <h3>SPOTLIGHT</h3>
+                            <span>View on Instagram</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title gs-reveal">EXPERTISE</h2>
+                <div class="services-list">
+                    <div class="service-row gs-reveal">
+                        <div class="service-name">01 // CINEMATOGRAPHY</div>
+                        <div class="service-desc">High-octane festival coverage using premium camera ecosystems. Capturing the sheer scale and micro-emotions simultaneously.</div>
+                    </div>
+                    <div class="service-row gs-reveal">
+                        <div class="service-name">02 // COLOR GRADING</div>
+                        <div class="service-desc">Professional DaVinci Resolve workflows to establish moody, vibrant, and evocative aesthetics that fit the brand.</div>
+                    </div>
+                    <div class="service-row gs-reveal">
+                        <div class="service-name">03 // POST-PRODUCTION</div>
+                        <div class="service-desc">Rhythmic, beat-synced editing paired with industry-leading sound design for maximum visceral impact.</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- 3D Stacked Services -->
-            <section id="services" class="services">
-                <h2 class="section-title">EXPERTISE</h2>
-                <div class="stack-cards">
-                    <div class="card" style="--i: 1">
-                        <div class="card-content">
-                            <h3>Cinematography</h3>
-                            <p>High-octane festival coverage using RED and ARRI ecosystems. Capturing the sheer scale and micro-emotions simultaneously.</p>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Cinematography">
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-flex">
+                    <div class="contact-text">
+                        <h2 class="huge-text gs-reveal">LET'S BUILD<br><i class="accent">Something</i><br>EPIC.</h2>
                     </div>
-                    <div class="card" style="--i: 2">
-                        <div class="card-content">
-                            <h3>Color Grading</h3>
-                            <p>Premium DaVinci Resolve workflows to establish moody, vibrant, and evocative aesthetics.</p>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop" alt="Color Grading">
-                    </div>
-                    <div class="card" style="--i: 3">
-                        <div class="card-content">
-                            <h3>Post-Production</h3>
-                            <p>Rhythmic, beat-synced editing paired with industry-leading sound design for maximum impact.</p>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop" alt="Editing">
+                    <div class="contact-form gs-reveal">
+                        <form action="#" method="POST">
+                            <input type="text" placeholder="YOUR NAME" required>
+                            <input type="email" placeholder="YOUR EMAIL" required>
+                            <textarea rows="3" placeholder="TELL ME ABOUT YOUR VISION" required></textarea>
+                            <button type="submit" class="hover-link">SEND INQUIRY</button>
+                        </form>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Contact -->
-            <section id="contact" class="contact">
-                <div class="contact-inner">
-                    <h2 class="huge-text">LET'S BUILD<br>SOMETHING<br>EPIC.</h2>
-                    <form action="#" method="POST" class="premium-form">
-                        <div class="input-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="input-group">
-                            <textarea id="message" rows="1" required></textarea>
-                            <label for="message">Tell me about your vision</label>
-                        </div>
-                        <button class="magnetic-btn">
-                            <span class="btn-text">SEND INQUIRY</span>
-                        </button>
-                    </form>
-                </div>
-            </section>
-
-            <footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
                 <div class="footer-top">
-                    <h2>HARSHCAM.</h2>
-                    <div class="socials">
-                        <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="magnetic">Instagram</a>
-                        <a href="#" class="magnetic">Vimeo</a>
-                        <a href="#" class="magnetic">Twitter</a>
+                    <div class="footer-logo">HARSHCAM.</div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/theharshcam?stkn=MThiZzhzdDV5ZmR4aQ==" target="_blank" class="hover-link">INSTAGRAM</a>
+                        <a href="#" class="hover-link">VIMEO</a>
+                        <a href="#" class="hover-link">TWITTER</a>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2024 Harshcam. Elevating Visuals.</p>
-                    <p>Designed with ❤️</p>
+                    <p>© 2024 Harshcam. All rights reserved.</p>
                 </div>
-            </footer>
-
-        </div>
+            </div>
+        </footer>
     </main>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
